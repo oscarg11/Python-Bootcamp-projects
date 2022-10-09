@@ -1,13 +1,28 @@
+
+
+
 class BankAccount:
+
+    all_accounts = []
 
     def __init__(self,int_rate,balance):
         self.int_rate = int_rate
         self.balance = balance
+        BankAccount.all_accounts.append(self)
     #This method increases the account balance by the given amount
     def deposit(self, amount):
         self.balance += amount
         print(self.balance)
         return self
+    #prints all instances of a Bank accounts info
+    @classmethod
+    def get_bank_account_info(cls):
+        for account in cls.all_accounts:
+            print(account.display_account_info())
+        return cls
+        
+
+
 
     #decreases the account balance by the given amount 
     #if there are sufficient funds; if there is not enough money, 
@@ -39,3 +54,7 @@ account2 = BankAccount(0.05, 1000)
 account1.deposit(100).deposit(45).deposit(100).withdraw(500).yield_interest().display_account_info()
 print("----------------------")
 account2.deposit(600).deposit(600).withdraw(100).withdraw(80).withdraw(400).withdraw(200).yield_interest().display_account_info()
+
+#call class method
+print("----------------------")
+BankAccount.get_bank_account_info()
