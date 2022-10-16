@@ -1,0 +1,64 @@
+1) Create 3 new dojos
+
+INSERT INTO dojos(name)
+VALUES
+	("Philly"),
+    ("New York"),
+    ("Boston");
+
+
+2) Delete the 3 dojos you just created
+
+DELETE FROM dojos
+WHERE id BETWEEN 1 and 3
+
+
+3) Create 3 more dojos
+INSERT INTO dojos(name)
+VALUES
+	("Philly"),
+    ("New York"),
+    ("Boston");
+
+
+4) Create 3 ninjas that belong to the first dojo
+
+INSERT INTO ninjas(first_name, last_name, age, dojo_id)
+VALUES 
+	("Oscar", "Garcia", 23, 4),
+    ("Joe", "Shmoe", 23, 4),
+    ("Jane", "Doe", 22, 4)
+
+
+5) Create 3 ninjas that belong to the second dojo
+
+INSERT INTO ninjas(first_name, last_name, age, dojo_id)
+VALUES 
+	("Cristiano", "Ronaldo", 37, 5),
+    ("Lionel", "Messi", 35, 5),
+    ("Angel", "Di Maria", 32, 5)
+
+
+6) Create 3 ninjas that belong to the third dojo
+
+INSERT INTO ninjas(first_name, last_name, age, dojo_id)
+VALUES 
+	("Jimmi", "Hendrix", 27, 6),
+    ("Roger", "Waters", 29, 6),
+    ("Robert", "Plant", 32, 6)
+
+
+7) Retrieve all the ninjas from the first dojo
+
+SELECT *
+FROM ninjas
+WHERE dojo_id = 4
+
+
+8) Retrieve all the ninjas from the last dojo
+
+SELECT * FROM ninjas ORDER BY dojo_id DESC LIMIT 3
+
+9) Retrieve the last ninjas dojo
+
+SELECT dojo_id FROM ninjas ORDER BY id DESC LIMIT 1

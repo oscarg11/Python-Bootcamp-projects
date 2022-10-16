@@ -1,0 +1,9 @@
+INSERT INTO names (name)
+VALUES
+	("Oscar"),
+    ("Cristiano"),
+    ("Lionel"),
+    ("Rafael")
+
+    SELECT name
+FROM names
