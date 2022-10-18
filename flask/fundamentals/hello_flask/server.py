@@ -11,6 +11,10 @@ def dojo():
 def hello(name):
     return f"Hi {name}!"
 
+@app.route('/template/<string:banana>/<int:num>')
+def template(banana,num):
+    return render_template("hello.html",banana=banana, num=num)
+
 @app.route('/repeat/<int:num>/<word>')
 def repeat(num, word):
     output = ''
