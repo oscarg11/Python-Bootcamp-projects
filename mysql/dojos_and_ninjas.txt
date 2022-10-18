@@ -50,15 +50,17 @@ VALUES
 
 7) Retrieve all the ninjas from the first dojo
 
-SELECT *
-FROM ninjas
-WHERE dojo_id = 4
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 4;
 
 
 8) Retrieve all the ninjas from the last dojo
 
-SELECT * FROM ninjas ORDER BY dojo_id DESC LIMIT 3
-
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+	WHERE dojos.id = (SELECT id FROM dojos ORDER BY id DESC LIMIT 1);
 9) Retrieve the last ninjas dojo
 
-SELECT dojo_id FROM ninjas ORDER BY id DESC LIMIT 1
+SELECT * FROM dojos
+WHERE dojos.id = (SELECT dojo_id FROM ninjas ORDER BY dojo_id DESC LIMIT 1);
