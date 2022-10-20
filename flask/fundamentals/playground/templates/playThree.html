@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground 3</title>
+    <style>
+    h1{
+        text-align: center;
+    }
+    #container{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:center;
+    }
+    #container .box{
+        flex-direction: row;
+        background-color: blue;
+        margin: 10px;
+        width:150px;
+        height: 150px;
+    }
+</style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+<!-- this for loop prints out x amount of boxes -->
+<!-- and also changes the box color-->
+    <div id="container">
+        {% for i in range(0,x):%}
+            {%if color == color %}
+                <div class="box" style='background-color:{{color}}'></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>
