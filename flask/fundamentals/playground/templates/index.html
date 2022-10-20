@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playground 1</title>
+    <title>Playground</title>
 <style>
     h1{
         text-align: center;
     }
-    .container{
+    #container{
         width: 100%;
         margin: 0 auto;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
     }
-    .container div{
+    #container .box{
         flex-direction: row;
         background-color: blue;
         margin: 10px;
@@ -33,5 +34,11 @@
         <div></div>
     </div>
 
+<!-- loop displays x amount of boxes and changes color -->
+    <div id="container">
+        {% for i in range(0,x)%}
+            <div class="box" style='background-color:{{color}}'></div>
+        {% endfor %}
+    </div>
 </body>
 </html>
