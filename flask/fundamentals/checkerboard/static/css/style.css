@@ -7,20 +7,22 @@ h1{
     text-align: center;
     margin:20px;
 }
-.container{
+table{
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-#red{
+.color1{
     width:100px;
     height: 100px;
     background-color: red;
+    border: 2px solid white;
 }
-#black{
+.color2{
     width:100px;
     height: 100px;
     background-color: black;
+    border: 2px solid white;
 }

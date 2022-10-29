@@ -10,10 +10,15 @@
 </head>
 <body>
     <h1>CheckerBoard</h1>
-    
-    <div class="container">
-        <div id="red"></div>
-        <div id="black"></div>
-    </div>
+    <table>
+        {% for i in range(x)%}
+        <tr>
+            {% for j in range(y) %}
+            <td class='color{{ (i+j)%2+1 }}'></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        
+    </table>
 </body>
 </html>

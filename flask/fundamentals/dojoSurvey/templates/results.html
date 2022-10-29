@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        .container-md{
+            margin-top: 50px;
+            width: 50%;
+            background-color: darkslategray;
+            
+            border-radius: 10px;
+            
+        }
+        .container{
+            margin:0 auto;
+            margin-top:5px;
+            margin-bottom: 5px;
+            background-color: aliceblue;
+            border:2px solid black;
+            width: 50%;
+            border-radius: 10px;
+        }
+        .btn a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+    <title>Results</title>
+</head>
+<body>
+    <div class="container-md">
+        <div class="container">
+            <p>Name: {{session['yourname']}}</p>
+            <p>Dojo Location: {{session['dojolocation']}}</p>
+            <p>Favorite Language: {{session['language']}}</p>
+            <p>Part-time or Full-time: {{session['time-option']}}</p>
+            <p>How did you hear about us?: </p>
+<!-- Since checkboxes are saved into a list we can iterate through 
+through and print out the selected checkboxes -->
+            {% for i in session['checkedbox']%}
+            <ul>
+                <li>{{i}}</li>
+            </ul>
+            {% endfor %}
+
+            <p>Comments: {{session['comment']}}</p>
+<!-- this button takes us back to the form page -->
+            <button class="btn btn-primary btn-lg mb-3"><a href="{{url_for('index')}}">Go back</a></button>
+            
+    </div>
+    
+
+</body>
+</html>
