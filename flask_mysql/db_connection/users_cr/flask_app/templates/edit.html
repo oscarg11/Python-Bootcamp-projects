@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        h1{
+            color: yellow;
+        }
+        label, p{
+            color:white
+        }
+        .container-sm{
+            margin-top: 50px;
+            width: 50%;
+            background-color: darkslategray ;
+            border-radius: 10px;
+        }
+        .btn, a{
+            margin-top: 10px;
+            color:white;
+            text-decoration: none;
+        }
+        .btn:hover{
+            color: yellow;
+        }
+    </style>
+    <title>Edit User</title>
+</head>
+<body>
+    <div class="container-sm">
+        <!-- form page -->
+        <form action="/user/update" method="POST">
+            <div>
+                <h1>Edit {{users.first_name}}</h1>
+                <!-- hidden input to query the database -->
+                <input type="hidden" name="id" value={{users.id}}>
+            </div>
+            <div class="mb-3">
+                <label for="fname" class="form-label">First Name:</label>
+                <input type="text" name="first_name" class="form-control" value="{{users.first_name}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name:</label>
+                <input type="text" name="last_name" class="form-control" value="{{users.last_name}}" >
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" name="email" class="form-control" value="{{users.email}}">
+            </div>
+            <input type="submit" value="Update User">
+        </form>
+
+    <!-- go back to display page  -->
+    <a href="/users" class="btn btn-primary btn-lg mb-3">Go Back</a>
+    </div>
+
+</body>
+</html>
