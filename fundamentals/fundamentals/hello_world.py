@@ -6,7 +6,7 @@ print("Hello",name) #with comma
 print("Hello " + name) # with +
 # 3. print "Heloow 42!" with the number in a variable
 name = 42
-print("Hello",name,"!") #with comma
+print("Hello",str(name) +"!") #with comma
 print("Hello " + str(name) + "!") #with + (fixed error by casting name to be a string)
 # 4 print "I love to eat sushi and pizza." with the food in the variables
 fave_food1 = "sushi"
