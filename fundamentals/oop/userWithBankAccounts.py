@@ -36,8 +36,13 @@ class BankAccount:
         return self
     #withdraw
     def withdraw(self,amount):
-        self.balance -= amount
-        return self
+        if self.balance >= amount:
+            self.balance -= amount
+            return self
+        else:
+            print("insuficient funds: A $5 fee will be taken from your account")
+            self.balance -= 5
+            return self
     #display info
     def display_account_info(self):
         print("Your Balance is:",self.balance,"Your interest rate is:",self.int_rate, sep='\n')

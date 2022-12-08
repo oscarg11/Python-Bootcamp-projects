@@ -12,8 +12,13 @@ class BankAccount:
         return self
     #withdraw
     def withdraw(self,amount):
-        self.balance -= amount
-        return self
+        if self.balance >= amount:
+            self.balance -= amount
+            return self
+        else:
+            print("insuficient funds: A $5 fee will be taken from your account")
+            self.balance -= 5
+            return self
     #display info
     def display_account_info(self):
         print("Your Balance is:",self.balance,"Your interest rate is:",self.int_rate, sep='\n')
@@ -46,3 +51,7 @@ account2.deposit(1000).deposit(1000).withdraw(100).withdraw(100).withdraw(100).w
 #prints each instance of BankAccounts stored info
 print("ALL ACCOUNTS IN BankAccount:")
 BankAccount.get_all_accounts()
+
+#test withdraw function
+print("TEST WITHDRAW FUNCTION")
+account1.withdraw(160).display_account_info()
