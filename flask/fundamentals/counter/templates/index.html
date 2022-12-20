@@ -11,10 +11,12 @@
 <body>
     <div class="align-middle">
         <h1 class="text-center">Counter</h1>
-
+        <!-- counter -->
         <h2 class="text-center">{{session['count']}}</h2>
 
-        <form class="text-center" action="/count" method="post">
+        <form class="text-center" action="/counter" method="post">
+            <!-- the names of both buttons are "button"-->
+            <!-- however when their values are different and can be compared in an if statement -->
             <button class="btn btn-danger"  name="button" value = "plustwo">+2 Visits</button>
             <button class="btn btn-primary" name="button" value = "reset">Reset</button>
         </form>

@@ -5,26 +5,27 @@ app = Flask(__name__)
 app.secret_key = 'Secret'
 #records the number of times the user has visited the page 
 @app.route('/')
-def initial_count():
+def index():
     if 'count' not in session:
-        session['count'] = 1
+        session['count']=1
     else:
-        session['count'] += 1
+        session['count']+=1
+    return render_template("index.html",count = session['count'])
 
-    return render_template('index.html', count=session['count'])
-
-#"plustwo" adds two visits while "reset" resets or clears the count to 1
-@app.route('/count', methods=['POST'])
-def modified_count():
+#Ninja Bonus: Add a +2 button underneath the counter and a new
+#route that will increment the counter by 2.
+#Ninja Bonus: Add a reset button to the reset the counter.
+@app.route('/counter',methods=['POST'])
+def manipulate_count():
     if request.form['button'] == "plustwo":
-        session['count'] += 1
+        session['count']+=1
     else:
         session.clear()
     return redirect('/')
 
-#clears the session and redirects back to the root route
+#destroys session: clears the session and redirects to the route rout to test it
 @app.route('/destroy_session')
-def destroy():
+def destroy_session():
     session.clear()
     return redirect('/')
 
