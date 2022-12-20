@@ -1,21 +1,20 @@
-import string
-from flask import Flask, render_template
-app = Flask(__name__)
-# this method uses template index.html to render 3 blue boxes
+from flask import Flask, render_template # Import Flask to allow us to create our app
+app = Flask(__name__)    # Create a new instance of the Flask class called "app"
+
+#1.)render three blue boxes 
 @app.route('/play')
-def play():
-    return render_template('index.html', color = "blue", x = 3)
+def three_blue_boxes():
+    return render_template('index.html',x=3) #box color is set to blue and x is set to 3 by default
 
-#this method renders x amount of boxes
+#2.) render x amount of boxes
 @app.route('/play/<int:x>')
-def playTwo(x):
-    return render_template("index.html",x = x, color = "blue")
+def x_amount_of_boxes(x):
+    return render_template("index.html", x=x)
 
-#This method renders x amount of boxes
-#while also changing the color of all boxes
-@app.route('/play/<int:x>/<string:color>')
-def playThree(x,color):
-    return render_template("index.html",x=x, color=color)
+#3.) render x amount of boxes, and have them in appear in x color
+@app.route('/play/<int:x>/<color>')
+def x_color(x, color):
+    return render_template("index.html", x=x, color=color)
 
-if __name__=="__main__":   
-    app.run(debug=True) 
+if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
+    app.run(debug=True)    # Run the app in debug mode.
