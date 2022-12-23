@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <style>
         .container-md{
             margin-top: 50px;
@@ -34,25 +35,28 @@
 <body>
     <div class="container-md">
         <div class="container">
-            <p>Name: {{session['yourname']}}</p>
-            <p>Dojo Location: {{session['dojolocation']}}</p>
-            <p>Favorite Language: {{session['language']}}</p>
-            <p>Part-time or Full-time: {{session['time-option']}}</p>
+            <h1>Submitted Info</h1>
+
+            <p>Name: {{ session['name'] }}</p>
+            <p>Dojo Location: {{ session['location'] }}</p>
+            <p>Favorite Language: {{ session['favlanguage'] }}</p>
+            <p>Part-Time or Full-Time: {{ session['time_options']}}</p>
             <p>How did you hear about us?: </p>
-<!-- Since checkboxes are saved into a list we can iterate through 
-through and print out the selected checkboxes -->
-            {% for i in session['checkedbox']%}
+            <!-- NINJA BONUS: Since checkboxes are saved into a list we can iterate through 
+            through and print out the selected checkboxes -->
+            {% for i in session['checkbox']%}
             <ul>
                 <li>{{i}}</li>
             </ul>
             {% endfor %}
 
-            <p>Comments: {{session['comment']}}</p>
-<!-- this button takes us back to the form page -->
-            <button class="btn btn-primary btn-lg mb-3"><a href="{{url_for('index')}}">Go back</a></button>
-            
-    </div>
-    
+            <p>Comment: {{ session['comment'] }}</p>
 
+    <!-- go back button -->
+            <a href="/">
+                <button class="btn btn-primary btn-lg mb-3">Go Back</button>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

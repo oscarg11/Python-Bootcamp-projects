@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <style>
         h1{
             color: yellow;
@@ -27,68 +28,62 @@
     <title>Dojo Survey</title>
 </head>
 <body>
-    <div class="container-sm">
+    <div class="container-sm w-50 p-3">
         <h1>Dojo Survey</h1>
-        <form action="/process" method="post">
-            <div class="col-sm-10">
-                <label for="name" class="form-label">Your Name:</label>
-                <input type="text" name="name" class="form-control">
-            </div>
-            
+        <form  action="/process" method="post">
+            <!-- name input -->
             <div class="mb-3">
-                <label for="location" class="form-label">Dojo location:</label>
-                <select name="location" id="location" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Location...</option>
-                    <option value="Los Angeles">Los Angeles</option>
-                    <option value="San Diego">San Diego</option>
-                    <option value="Austin">Austin</option>
-                    <option value="New York City">New York City</option>
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+            </div>
+            <!-- Dojo location -->
+            <div class="mb-3">
+                <label for="location" class="form-label">Dojo Location:</label>
+                <select class="form-select" name="location" id="location">
+                    <option value="philadelphia">Philadelphia</option>
+                    <option value="nyc">NYC</option>
+                    <option value="austin">Austin</option>
+                    <option value="losangeles">Los Angeles</option>
                 </select>
             </div>
-    
-            <div class="mb-3">
-                <label for="favlanguage" class="form-label">Favorite Language:</label>
-                <select name="favlanguage" id="favlanguage" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Favorite Language?</option>
+            <!-- favorite language -->
+            <div class=" mb-3">
+                <label class="form-label"for="favlanguage">Favorite Language:</label>
+                <select class="form-select"name="favlanguage" id="favlanguage">
                     <option value="python">Python</option>
-                    <option value="Javascript">JavaScript</option>
-                    <option value="Java">Java</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
                     <option value="c#">C#</option>
                 </select>
             </div>
-    <!-- radio buttons -->
+            <!-- radio buttons -->
             <div class="mb-3">
-                <p>Interested in Part Time or Full time?</p>
-                <input type="radio" id="part-time" name="time-options" value="part-time">
-                <label for="part-time">Part-Time</label><br>
-                <input type="radio" id="fulltime" name="time-options" value="full-time">
-                <label for="fulltime">Full-time</label>
+                <p>Part Time or Full Time?:</p>
+                <input type="radio" name="time_options" value="Part Time">
+                <label class="form-label" for="part_time">Part-Time</label><br>
+                <input type="radio" name="time_options" value="Full Time">
+                <label class="form-label" for="full_time">Full-Time</label><br>
             </div>
-    <!-- checkboxes -->
+            <!-- check boxes -->
             <div class="mb-3">
-                <p>How did you hear about us?</p>
-                <input type="checkbox" id="ads" name="checkbox" value="Social Media">
-                <label for="ads"> Social Media</label><br>
+                <p>How did you hear about us?:</p>
+                <input type="checkbox" name="checkbox" value="Social Media">
+                <label class="form-label" for="ads">Social Media</label><br>
                 <input type="checkbox" id="friend" name="checkbox" value="Peer Referal">
-                <label for="friend">Peer Referal</label><br>
+                <label class="form-label" for="friend">Peer Referal</label><br>
                 <input type="checkbox" id="search" name="checkbox" value="Google/Search Engine">
-                <label for="search">Google/Search Engine</label><br>
-            </div> 
-            
-            <div class="form-floating">
-                <textarea class="form-control" id="comment" name="comment"rows="5" cols="33"></textarea>
-                <label for="comment">Comment (optional):</label>
+                <label class="form-label" for="search">Google/Search Engine</label><br>
             </div>
-            
-            <div class="col-auto">
-                <input class="btn btn-primary btn-lg mb-3" type='submit' value='submit'>
+            <!-- comments -->
+            <div class="mb-3">
+                <label class="form-label" for="comment">Comment(optional):</label>
+                <textarea class='form-control' name="comment" id="comment" cols="30" rows="10"></textarea>
             </div>
-
+            <!-- submit button -->
+            <div>
+                <input class="btn btn-primary btn-lg mb-3 "type="submit">
+            </div>
+        </form>
     </div>
-        
-    
-    
-
-    </form>
 </body>
 </html>
