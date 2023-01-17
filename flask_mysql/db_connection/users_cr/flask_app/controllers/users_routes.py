@@ -30,7 +30,11 @@ def create_user():
         "lname" : request.form["lname"],
         "email" : request.form["email"]
     }
-    # We pass the data dictionary into the save method from the Friend class.
+    #(VALIDATION)if form input not valid it redirects back form page
+    # if valid the form input is saved/inserted to the db
+    if not User.validate(request.form):
+        return redirect('/users/new')
+    # We pass the data dictionary into the save method from the User class.
     User.save(data)
     # Don't forget to redirect after saving to the database.
     return redirect('/')
