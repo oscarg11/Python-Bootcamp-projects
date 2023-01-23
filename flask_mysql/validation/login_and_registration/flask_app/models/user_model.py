@@ -55,9 +55,10 @@ class User:
         print(result)
         if len(result)<1:
             return False
-        one_user= cls(result[0])
-        print(one_user.password)
-        return one_user
+        user_email= cls(result[0])
+        # deleted this below
+        print(user_email.password)
+        return user_email
 
     #Registration Validation
     @staticmethod
@@ -82,7 +83,7 @@ class User:
     @staticmethod
     def validate_login(form_data):
         is_valid=True
-        #save the users email into a variable 
+        #Check if the email exists in the db 
         user_email={
             "email":form_data['email']
         }
