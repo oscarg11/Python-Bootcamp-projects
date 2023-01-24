@@ -6,7 +6,6 @@ from flask import flash #import flash
 from flask_bcrypt import Bcrypt # import bcrypt
 bcrypt = Bcrypt(app)
 
-
 # data-base schema name
 db = "login_registration"
 
@@ -56,8 +55,6 @@ class User:
         if len(result)<1:
             return False
         user_email= cls(result[0])
-        # deleted this below
-        print(user_email.password)
         return user_email
 
     #Registration Validation
@@ -65,18 +62,25 @@ class User:
     def validate(form_data):
         is_valid = True
         if len(form_data['first_name']) < 2:
-            flash("First name must be at least 2 characters!")
+            flash("First name must be at least 2 characters!", "register")
+            is_valid = False
+        if form_data['first_name'].isalpha()==False:
+            flash("First name must only consist of alphabetic characters", "register")
             is_valid = False
         if len(form_data['last_name']) < 2:
-            flash("Last name must be at least 2 characters!")
+            flash("Last name must be at least 2 characters!", "register")
             is_valid
+        if form_data['last_name'].isalpha()==False:
+            flash("Last name must only consist of alphabetic characters", "register")
+            is_valid = False
         if not EMAIL_REGEX.match(form_data['email']):
-            flash("Please enter a valid email!")
+            flash("Please enter a valid email!", "register")
             is_valid = False
         if form_data['password'] != form_data['conf_password']:
-            flash("Passwords do not match")
+            flash("Passwords do not match","register")
         if len(form_data['password']) < 8:
-            flash("Password must be at least 8 characters long!")
+            flash("Password must be at least 8 characters long!","register")
+            is_valid = False
         return is_valid
 
     # Login validation
@@ -89,9 +93,10 @@ class User:
         }
         existing_user= User.get_by_email(user_email)
         if not existing_user:
-            flash("Invalid email/password")
+            flash("Invalid email/password", "login")
             is_valid=False
+            # check if password exists in db
         if not bcrypt.check_password_hash(existing_user.password, form_data['password']):
-            flash("Invalid email/password")
+            flash("Invalid email/password", "login")
             is_valid=False
         return is_valid
