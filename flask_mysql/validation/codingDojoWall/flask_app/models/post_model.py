@@ -26,7 +26,7 @@ class Post:
     # save a post
     @classmethod
     def save_post(cls,data):
-
+        
         query = """
         INSERT INTO posts(content, user_id)
         VALUES (%(content)s, %(user_id)s);

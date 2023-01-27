@@ -14,11 +14,13 @@ def createPost():
         "content":request.form['content'],
         "user_id":session['user_id']
     }
+    print("NEW POST__", request.form)
     post_model.Post.save_post(post_data)
     return redirect('/wall')
 
 # delete post(only logged in users can delete their own post)
 @app.route('/delete/<post_id>')
 def delete_post(post_id):
+    print("POST DELETED__", request.form)
     post_model.Post.delete_post(post_id)
     return redirect('/wall')
